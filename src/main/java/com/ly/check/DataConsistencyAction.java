@@ -1,5 +1,7 @@
 package com.ly.check;
 
+import com.ly.common.ConfigLoader;
+
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.ResultSet;
@@ -20,14 +22,14 @@ import java.util.Properties;
 public class DataConsistencyAction implements Runnable {
 
     //老集群配置
-    private final String OLD_CLUSTER = "jdbc:kylin://ip:7070";
-    private final String OLD_USER_NAME = "username";
-    private final String OLD_PASSWD = "password";
+    private final String OLD_CLUSTER = ConfigLoader.CLUSTER1_JDBC_URL;
+    private final String OLD_USER_NAME = ConfigLoader.CLUSTER1_USER;
+    private final String OLD_PASSWD = ConfigLoader.CLUSTER1_PWD;
 
     //新集群配置
-    private final String NEW_CLUSTER = "jdbc:kylin://ip:7070";
-    private final String NEW_USER_NAME = "username";
-    private final String NEW_PASSWD = "password";
+    private final String NEW_CLUSTER = ConfigLoader.CLUSTER2_JDBC_URL;
+    private final String NEW_USER_NAME = ConfigLoader.CLUSTER2_USER;
+    private final String NEW_PASSWD = ConfigLoader.CLUSTER2_PWD;
 
     private String projectName;
     private String sql;
